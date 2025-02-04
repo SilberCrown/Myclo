@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyClo Web App</title>
+    {% if user_settings and user_settings.theme == "xp" %}
+      <link rel="stylesheet" href="/static/xp-style.css">
+    {% elif user_settings and user_settings.theme == "dark" %}
+      <link rel="stylesheet" href="/static/dark-style.css">
+    {% elif user_settings and user_settings.theme == "detarame" %}
+      <link rel="stylesheet" href="/static/detarame-style.css">
+    {% else %}
+      <link rel="stylesheet" href="/static/style.css">
+    {% endif %}
+  </head>
+  
+<body>
+  <header class="app-header">
+    <h1 class="app-title">MyClo カレンダー</h1>
+    <nav class="app-nav">
+        こんにちは、{{username}}さん |
+        <a href="/">ホーム</a> |
+        <a href="/settings">設定</a> |
+        <a href="/my_closet">Myクローゼット</a> |
+        <a href="/calendar">カレンダー</a> |
+        <a href="/logout">ログアウト</a> |
+      </nav>
+      
+  </header>
+
+  <main class="app-content">
+    <section class="section-box">
+      <h2>{{current_year}}年 {{current_month}}月</h2>
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% set week = [] %}
+          {% for day in month_days %}
+            {% if loop.index0 % 7 == 0 %}
+              <tr>
+            {% endif %}
+            <!-- 今月以外の日付をグレー表示にする -->
+            {% if day.month == current_month %}
+              <td>
+                <div class="calendar-day">
+                  {{day.day}}
+                  <div class="calendar-events">
+                    {% set date_str = day|string %}
+                    {% if date_str in events_dict %}
+                      {% for e in events_dict[date_str] %}
+                        <div>- {{ e }}</div>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                </div>
+              </td>
+            {% else %}
+              <td class="gray-day">
+                <div class="calendar-day">
+                  {{day.day}}
+                </div>
+              </td>
+            {% endif %}
+
+            {% if loop.index0 % 7 == 6 %}
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-box">
+      <h3>カレンダーイベント追加</h3>
+      <form action="/add_calendar_event" method="POST">
+        <label>日付 (YYYY-MM-DD):
+          <input type="date" name="date" required>
+        </label>
+        <br><br>
+        <label>説明:
+          <input type="text" name="description" required>
+        </label>
+        <br><br>
+        <button type="submit" class="btn-primary">登録</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

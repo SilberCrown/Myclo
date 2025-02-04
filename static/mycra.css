@@ -1,0 +1,31 @@
+/* static/mycra.css */
+/* 最小限のレイアウト: 
+   640x360 ピクセルのCanvasで2Dブロックを描画し、
+   簡易的にMinecraft風味を出す
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eaeaea;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+}
+
+#mycra-container {
+  width: 700px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+#mycra-canvas {
+  background-color: #b9e7ff; /* 空色っぽい背景(空想定) */
+  border: 2px solid #666;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+#info {
+  margin: 1rem 0;
+  font-weight: bold;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyClo Web App</title>
+    {% if user_settings and user_settings.theme == "xp" %}
+      <link rel="stylesheet" href="/static/xp-style.css">
+    {% elif user_settings and user_settings.theme == "dark" %}
+      <link rel="stylesheet" href="/static/dark-style.css">
+    {% elif user_settings and user_settings.theme == "detarame" %}
+      <link rel="stylesheet" href="/static/detarame-style.css">
+    {% else %}
+      <link rel="stylesheet" href="/static/style.css">
+    {% endif %}
+  </head>
+  
+<body>
+  <header class="app-header">
+    <h1 class="app-title">MyClo Web App</h1>
+    <nav class="app-nav">
+      {% if logged_in %}
+        <span>こんにちは、{{username}}さん</span> |
+        <a href="/">ホーム</a> |
+        <a href="/settings">設定</a> |
+        <a href="/my_closet">Myクローゼット</a> |
+        <a href="/calendar">カレンダー</a> |
+        <a href="/logout">ログアウト</a> |
+      {% else %}
+        <!-- ログインフォーム -->
+        <form action="/login" method="POST" class="login-form-inline">
+          <input type="text" name="username" placeholder="ユーザー名" required>
+          <input type="password" name="password" placeholder="パスワード" required>
+          <button type="submit">ログイン</button>
+        </form>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main class="app-content">
+    {% if not logged_in %}
+      <!-- 新規登録フォーム -->
+      <section class="section-box">
+        <h2>新規登録</h2>
+        <form action="/register" method="POST" class="register-form">
+          <div class="form-group">
+            <label for="username">ユーザー名</label>
+            <input type="text" name="username" id="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">パスワード</label>
+            <input type="password" name="password" id="password" required>
+          </div>
+          <button type="submit" class="btn-primary">登録</button>
+        </form>
+      </section>
+    {% else %}
+      {% if favorites_list %}
+        <!-- お気に入り一覧表示 -->
+        <section class="section-box">
+          <h2>お気に入り一覧</h2>
+          <ul>
+            {% for fav in favorites_list %}
+              <li style="margin-bottom: 20px;">
+                <p>{{ fav[0] }}</p>
+                {% if fav[1] %}
+                  <!-- 軽量化モードの場合は画像非表示にしてもOK -->
+                  {% if user_settings and user_settings.light_mode %}
+                    <!-- 軽量化モードなら画像非表示 -->
+                  {% else %}
+                    <img src="{{ fav[1] }}" alt="お気に入り画像" style="max-width:300px;">
+                  {% endif %}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+          <a href="/">ホームへ戻る</a>
+        </section>
+      {% elif settings %}
+      
+      {% else %}
+        <!-- ホーム画面 (服の登録、天気提案など) -->
+        <section class="section-box">
+          <h2>服の登録</h2>
+          <form action="/upload_cloth" method="POST" enctype="multipart/form-data">
+            <label>服の名前: <input type="text" name="cloth_name" required></label><br><br>
+            <label>服の画像: <input type="file" name="cloth_image" accept="image/*"></label><br><br>
+            <button type="submit">登録</button>
+          </form>
+        </section>
+
+        <section class="section-box">
+          <h2>服装を提案してもらう</h2>
+          <p>以下のボタンを押すと、現在地の天気からAIが服装を提案します。</p>
+          <button onclick="getSuggestion()" class="btn-primary">提案を取得</button>
+          <div id="suggestion-result" class="suggestion-box"></div>
+        </section>
+      {% endif %}
+    {% endif %}
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
+

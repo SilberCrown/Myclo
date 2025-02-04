@@ -1,0 +1,26 @@
+<!-- templates/game_mycra.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Mycra - Minecraft風(2D)ミニゲーム</title>
+  <!-- 独自のCSS (mycra.css) -->
+  <link rel="stylesheet" href="/static/mycra.css">
+</head>
+<body>
+  <div id="mycra-container">
+    <h1>Mycra</h1>
+    <p>ブロックを壊す・置く: マウス左クリック。<br>
+       WASDキーでプレイヤー移動(ジャンプなし簡易)。<br>
+       Escキーでワールド再生成。</p>
+
+    <canvas id="mycra-canvas" width="640" height="360"></canvas>
+    <div id="info">XYZ: (0,0)</div>
+
+    <button onclick="resetWorld()">ワールドリセット</button>
+    <button onclick="goHome()">ホームへ戻る</button>
+  </div>
+
+  <script src="/static/mycra.js"></script>
+</body>
+</html>

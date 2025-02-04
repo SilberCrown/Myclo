@@ -1,0 +1,26 @@
+<!-- templates/game_2048.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>2048 Game</title>
+
+
+
+  <link rel="stylesheet" href="/static/2048.css">
+</head>
+<body>
+  <div id="game-container">
+    <h1>2048</h1>
+    <p>矢印キーでタイルを動かしてください。<br>
+       Escキーでリセットします。</p>
+    <div id="grid"></div>
+    <div id="score">Score: 0</div>
+
+    <button onclick="resetGame()">リセット</button>
+    <button onclick="goHome()">ホームに戻る</button>
+  </div>
+
+  <script src="/static/2048.js"></script>
+</body>
+</html>

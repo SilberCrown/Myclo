@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyClo Web App</title>
+    {% if user_settings and user_settings.theme == "xp" %}
+      <link rel="stylesheet" href="/static/xp-style.css">
+    {% elif user_settings and user_settings.theme == "dark" %}
+      <link rel="stylesheet" href="/static/dark-style.css">
+    {% elif user_settings and user_settings.theme == "detarame" %}
+      <link rel="stylesheet" href="/static/detarame-style.css">
+    {% else %}
+      <link rel="stylesheet" href="/static/style.css">
+    {% endif %}
+  </head>
+  
+<body>
+  <header class="app-header">
+    <h1 class="app-title">設定</h1>
+    <nav class="app-nav">
+        こんにちは、{{username}}さん |
+        <a href="/">ホーム</a> |
+        <a href="/settings">設定</a> |
+        <a href="/my_closet">Myクローゼット</a> |
+        <a href="/calendar">カレンダー</a> |
+        <a href="/logout">ログアウト</a> |
+      </nav>
+      
+  </header>
+
+  <main class="app-content">
+    <section class="section-box">
+      <h2>特殊設定</h2>
+      <form action="/update_settings" method="POST">
+        <input type="text" name="hidden_command" placeholder="入力">
+        <br><br>
+
+        <h2>温度単位</h2>
+        <label>
+          <input type="radio" name="temp_unit" value="c"
+            {% if user_settings.temp_unit == "c" %}checked{% endif %}>
+          摂氏(℃)
+        </label>
+        <label>
+          <input type="radio" name="temp_unit" value="f"
+            {% if user_settings.temp_unit == "f" %}checked{% endif %}>
+          華氏(°F)
+        </label>
+        <br><br>
+
+        <h2>軽量化モード</h2>
+        <label>
+          <input type="checkbox" name="light_mode" {% if user_settings.light_mode %}checked{% endif %}>
+          画像表示などを抑制し、高速化を図ります。
+        </label>
+        <br><br>
+
+        <button type="submit" class="btn-primary">設定を保存</button>
+      </form>
+    </section>
+
+    <section class="section-box">
+      <h2>アカウント削除</h2>
+      <p>アカウントを削除すると、関連データ(服登録、カレンダー、AI提案のお気に入りなど)もすべて消去されます。</p>
+      <form action="/delete_account" method="POST">
+        <button type="submit" class="btn-warn">アカウントを削除</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

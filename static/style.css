@@ -1,0 +1,229 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff; 
+  color: #1d1d1f;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.app-header {
+  background-color: #fff;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.app-nav {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.app-nav a {
+  text-decoration: none;
+  color: #0071e3; 
+  font-weight: 500;
+}
+
+.app-nav a:hover {
+  text-decoration: underline;
+}
+
+.login-form-inline {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.login-form-inline input {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.section-box {
+  background-color: #fff;
+  margin: 1rem auto;   
+  padding: 1.5rem;     
+  max-width: 600px;
+  border-radius: 8px; 
+  border: 1px solid #eaeaea;
+}
+
+
+.section-box h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.app-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ----------------------------------------------------
+   登録フォーム周り
+---------------------------------------------------- */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.register-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.register-form label {
+  font-weight: 500;
+}
+
+.register-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+
+.btn-primary,
+.btn-warn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem; 
+  border: none;           
+                          
+  border-radius: 4px;    
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #0071e3;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #0063c5;
+}
+
+.btn-warn {
+  background-color: #ff3b30;
+  color: #fff;
+}
+.btn-warn:hover {
+  background-color: #e0261e;
+}
+
+
+.suggestion-box {
+  margin-top: 1rem;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  display: none;
+}
+
+.suggestion-box img {
+  max-width: 300px;
+  margin-top: 1rem;
+  border-radius: 3px;
+  border: 1px solid #999;
+}
+
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.calendar-table th,
+.calendar-table td {
+  border: 1px solid #ddd; 
+  padding: 0.8rem;        
+  vertical-align: top;
+}
+
+.calendar-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+.gray-day {
+  background-color: #fafafa;
+}
+
+.calendar-day {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-events {
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+
+.clothes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cloth-item {
+  background-color: #fafafa;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.cloth-item p {
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+}
+
+.cloth-item img {
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* ----------------------------------------------------
+   レスポンシブ (必要に応じて)
+---------------------------------------------------- */
+@media (max-width: 600px) {
+  .section-box {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+  .app-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,56 @@
+/* static/2048.css */
+/* 簡易版 */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #faf8ef;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #776e65;
+  }
+  
+  #game-container {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+  }
+  
+  #grid {
+    width: 400px;
+    height: 400px;
+    background: #bbada0;
+    border-radius: 6px;
+    position: relative;
+    margin: 0 auto 20px;
+  }
+  
+  .tile {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: #cdc1b4;
+    border-radius: 3px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px;
+    transition: all 0.15s ease;
+  }
+  
+  .tile-2  { background-color: #eee4da; color: #776e65; }
+  .tile-4  { background-color: #ede0c8; color: #776e65; }
+  .tile-8  { background-color: #f2b179; color: #f9f6f2; }
+  .tile-16 { background-color: #f59563; color: #f9f6f2; }
+  .tile-32 { background-color: #f67c5f; color: #f9f6f2; }
+  .tile-64 { background-color: #f65e3b; color: #f9f6f2; }
+  .tile-128{ background-color: #edcf72; color: #f9f6f2; }
+  .tile-256{ background-color: #edcc61; color: #f9f6f2; }
+  .tile-512{ background-color: #edc850; color: #f9f6f2; }
+  .tile-1024{ background-color: #edc53f; color: #f9f6f2; }
+  .tile-2048{ background-color: #edc22e; color: #f9f6f2; }
+  
+  #score {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  

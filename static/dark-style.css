@@ -1,0 +1,138 @@
+
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #111;
+    color: #eee;
+  }
+  
+  .app-header {
+    background-color: #222;
+    padding: 1rem;
+    border-bottom: 1px solid #444;
+  }
+  
+  .app-title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  
+  .app-nav {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .app-nav a {
+    text-decoration: none;
+    color: #bbb;
+  }
+  
+  .app-nav a:hover {
+    color: #fff;
+  }
+  
+  .section-box {
+    background-color: #333;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    max-width: 600px;
+    border-radius: 8px;
+    border: 1px solid #444;
+  }
+  
+  .section-box h2 {
+    margin-top: 0;
+    color: #fff;
+  }
+  
+  .btn-primary,
+  .btn-warn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  /* ボタン色 */
+  .btn-primary {
+    background-color: #555;
+  }
+  .btn-primary:hover {
+    background-color: #666;
+  }
+  
+  .btn-warn {
+    background-color: #b33;
+  }
+  .btn-warn:hover {
+    background-color: #d44;
+  }
+  
+  .suggestion-box {
+    margin-top: 1rem;
+    background-color: #222;
+    border: 1px solid #444;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    display: none;
+    color: #ddd;
+  }
+  
+  .suggestion-box img {
+    max-width: 300px;
+    margin-top: 1rem;
+    border-radius: 3px;
+    border: 1px solid #999;
+  }
+  
+  /* カレンダー */
+  .calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .calendar-table th,
+  .calendar-table td {
+    border: 1px solid #444;
+    padding: 0.8rem;
+  }
+  .calendar-table th {
+    background-color: #444;
+    color: #fff;
+  }
+  .gray-day {
+    background-color: #2a2a2a;
+  }
+  .calendar-day {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  .calendar-events {
+    text-align: left;
+    font-weight: normal;
+    color: #ccc;
+  }
+  
+  /* クローゼット */
+  .clothes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .cloth-item {
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: #eee;
+  }
+  

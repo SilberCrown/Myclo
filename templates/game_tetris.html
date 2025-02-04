@@ -1,0 +1,30 @@
+<!-- templates/game_tetris.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>テトリス風ゲーム</title>
+  <!-- tetris.css でテトリスの画面レイアウトを整える -->
+  <link rel="stylesheet" href="/static/tetris.css">
+</head>
+<body>
+  <div id="tetris-container">
+    <h1>テトリス風ゲーム</h1>
+    <p>矢印キー: 左右移動/下落、<br> 
+       ↑キー: 回転、<br>
+       スペース: ハードドロップ、<br>
+       Shift: ホールド<br>
+       Esc: リセット
+    </p>
+
+    <canvas id="tetris-canvas" width="240" height="400"></canvas>
+    <div id="score">SCORE: 0</div>
+
+    <button onclick="resetGame()">リセット</button>
+    <button onclick="goHome()">ホームへ戻る</button>
+  </div>
+
+  <!-- テトリス用JS -->
+  <script src="/static/tetris.js"></script>
+</body>
+</html>
